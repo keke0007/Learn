@@ -8,9 +8,7 @@ import org.junit.Test;
 
 import java.io.PrintStream;
 import java.util.Comparator;
-import java.util.function.BiFunction;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 /**
  * @version 1.0.0
@@ -81,6 +79,36 @@ public class MethodRef {
         Comparator<Integer> com2 = (x, y) -> x.compareTo(y);
         System.out.println("测试 类名::静态方法 的方法引用");
         Comparator<Integer> com3 = Integer::compareTo;
+    }
+
+    @Test
+    public void test5() {
+        BiPredicate<String, String> pre1 = (x, y) -> x.equals(y);
+        System.out.println(pre1.test("abc", "abc"));
+        System.out.println("测试 类名::实例方法名");
+        BiPredicate<String, String> pre2 = String::equals;
+        System.out.println(pre2.test("abc", "abc"));
+        System.out.println("----------------");
+        Function<Employee, String> fun1 = (e) -> e.show();
+        System.out.println(fun1.apply(new Employee()));
+        Function<Employee,String> fun2 = Employee::show;
+        System.out.println(fun2.apply(new Employee()));
+    }
+
+    @Test
+    public void test6() {
+        System.out.println("测试构造器引用");
+        Supplier<Employee> sup1 = () -> new Employee();
+        System.out.println(sup1.get());
+        System.out.println("--------------------");
+        Supplier<Employee> sup2 = Employee::new;
+        System.out.println(sup2.get());
+    }
+
+    @Test
+    public void test7() {
+        /*Function<String, Employee> fun1 = (str) -> new Employee();
+        System.out.println(fun1.apply("测试构造器引用"));*/
     }
 
 }

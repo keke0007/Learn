@@ -1,5 +1,6 @@
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @version 1.0.0
@@ -8,8 +9,12 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Employee {
     private String name;
     private Integer age;
     private Double salary;
+    public String show() {
+        return "测试方法引用！";
+    }
 }
