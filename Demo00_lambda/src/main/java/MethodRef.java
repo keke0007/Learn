@@ -52,6 +52,7 @@ public class MethodRef {
         con3.accept("测试方法引用");
     }
 
+
     @Test
     public void test2() {
         Employee employee =new Employee("张三",20,999d);
