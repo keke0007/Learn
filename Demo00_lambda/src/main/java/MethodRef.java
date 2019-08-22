@@ -109,6 +109,18 @@ public class MethodRef {
     public void test7() {
         /*Function<String, Employee> fun1 = (str) -> new Employee();
         System.out.println(fun1.apply("测试构造器引用"));*/
+
+        /*使用Function<T,R>调用构造器引用需要类中有相对应的构造器方法*/
+    }
+
+    @Test
+    public void test8() {
+        System.out.println("测试数组引用");
+        Function<Integer, String[]> fun1 = (i) -> new String[i];
+        System.out.println(fun1.apply(10));
+        System.out.println("------------------------");
+        Function<Integer,String[]> fun2 = String[]::new;
+        System.out.println(fun2.apply(10));
     }
 
 }

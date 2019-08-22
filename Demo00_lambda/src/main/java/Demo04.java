@@ -4,6 +4,8 @@
  * @version 1.0.0
  */
 
+import java.util.function.Function;
+
 /**
  * @version 1.0.0
  * @Author ke
@@ -19,7 +21,7 @@ public class Demo04 {
     }
 
     //处理字符串
-    public static String getFun(String str, Fun fun) {
-        return fun.getValue(str);
+    public static String getFun(String str, Function<String,String> fun) {
+        return fun.apply(str);
     }
 }

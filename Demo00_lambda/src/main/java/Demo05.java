@@ -4,6 +4,8 @@
  * @version 1.0.0
  */
 
+import java.util.function.Function;
+
 /**
  * @version 1.0.0
  * @Author ke
@@ -17,7 +19,7 @@ public class Demo05 {
     }
 
     //定义函数中的方法
-    public static Integer getFun(Integer a, Fun1<Integer,Integer> fun1) {
-        return fun1.getValue(a);
+    public static Integer getFun(Integer a, Function<Integer,Integer> fun) {
+        return fun.apply(a);
     }
 }
