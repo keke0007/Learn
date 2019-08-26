@@ -28,8 +28,8 @@ public class ProductController {
 
     @ApiOperation(value = "查询所有商品",notes = "查询所有商品")
     @ApiResponses(value = {@ApiResponse(code = 200,message = "响应成功"),
-            @ApiResponse(code = 401,message = "无权限访问该资源"),
-            @ApiResponse(code = 403,message = "资源已过期")})
+            @ApiResponse(code = 401,message = "请求要求用户的身份认证"),
+            @ApiResponse(code = 403,message = "没有权限访问本网站")})
     @RequestMapping(value = "findAll", method = RequestMethod.GET,produces = "application/json")
     public Result findAll() {
 
