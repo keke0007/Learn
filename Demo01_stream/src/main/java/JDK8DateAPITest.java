@@ -3,7 +3,6 @@ import org.junit.Test;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
 import java.util.Set;
@@ -51,6 +50,7 @@ public class JDK8DateAPITest {
         int nano = ins.getNano();   //获得纳秒值
         System.out.println(nano);
         long ins1 = ins.getEpochSecond();   //获得时间戳精确到秒
+        System.out.println(ins.toEpochMilli()); //精确到毫秒
         System.out.println(ins1);
     }
 
@@ -111,7 +111,9 @@ public class JDK8DateAPITest {
         String strDate = ldt.format(dtf1);
         System.out.println(strDate);
         LocalDateTime newLdt = ldt.parse(strDate, dtf1);
-        System.out.println(newLdt);
+        // System.out.println(newLdt);
+        //测试日期的转换
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy年MM月dd日")));
     }
 
     /*ZoneId : 时区*/
