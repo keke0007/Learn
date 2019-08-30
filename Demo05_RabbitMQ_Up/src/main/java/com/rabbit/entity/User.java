@@ -4,6 +4,8 @@ package com.rabbit.entity;/**
  * @version 1.0.0
  */
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -11,19 +13,10 @@ import java.io.Serializable;
  * @Author ke
  * @create 2019/8/27 16:53
  */
+@Data
 public class User implements Serializable {
     private String name;
     private String pass;
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public String getPass() {
-        return pass;
-    }
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
+    private int age;
+    private boolean sex;
 }

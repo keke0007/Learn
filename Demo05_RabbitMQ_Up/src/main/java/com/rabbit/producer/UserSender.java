@@ -23,6 +23,8 @@ public class UserSender {
         User user=new User();
         user.setName("hzb");
         user.setPass("123456789");
+        user.setAge(18);
+        user.setSex(true);
         System.out.println("user send : " + user.getName()+"/"+user.getPass());
         this.rabbitTemplate.convertAndSend("userQueue", user);
     }

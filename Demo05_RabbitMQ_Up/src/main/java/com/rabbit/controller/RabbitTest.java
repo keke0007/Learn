@@ -4,10 +4,7 @@ package com.rabbit.controller;/**
  * @version 1.0.0
  */
 
-import com.rabbit.producer.FanoutSender;
-import com.rabbit.producer.HelloSender1;
-import com.rabbit.producer.TopicSender;
-import com.rabbit.producer.UserSender;
+import com.rabbit.producer.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +29,8 @@ public class RabbitTest {
     private TopicSender topicSender;
     @Autowired
     private FanoutSender fanoutSender;
+    @Autowired
+    private CallBackSender callBackSender;
 
     @GetMapping("/hello")
     public void hello() {
@@ -79,5 +78,13 @@ public class RabbitTest {
     @GetMapping("/fanoutTest")
     public void fanoutTest() {
         fanoutSender.send();
+    }
+
+    /**
+     * 测试带返回值ack的topic消息队列
+     */
+    @GetMapping("/callback")
+    public void callbak() {
+        callBackSender.send();
     }
 }
