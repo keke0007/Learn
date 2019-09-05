@@ -23,7 +23,7 @@ public class CallBackSender implements  RabbitTemplate.ConfirmCallback{
     public void send() {
 
         rabbitTemplatenew.setConfirmCallback(this);
-        String msg="callbackSender : i am callback sender";
+        String msg="callbackSender : i am callback direct";
         System.out.println(msg );
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
         System.out.println("callbackSender UUID: " + correlationData.getId());
