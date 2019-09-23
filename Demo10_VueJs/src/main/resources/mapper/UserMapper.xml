@@ -12,4 +12,6 @@
     <!--@mbg.generated generated on Fri Sep 13 15:02:31 CST 2019.-->
     id, username, `password`, `name`
   </sql>
+
+
 </mapper>
