@@ -27,7 +27,7 @@ public class JDK8DateAPI {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 
 
-        Callable<Date> task = () -> DateUtils.convert("20161218");
+        Callable<Date> task = () -> DateUtil.convert("20161218");
         ExecutorService pool = Executors.newFixedThreadPool(10);
         List<Future<Date>> results = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
