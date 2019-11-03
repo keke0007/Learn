@@ -12,18 +12,19 @@ import java.util.List;
  */
 public class Demo06 {
     public static void main(String[] args) throws ParseException {
-        Date startTime = new SimpleDateFormat("yyyy-MM-dd").parse("2019-06-01");
-        Date endTime = new SimpleDateFormat("yyyy-MM-dd").parse("2019-09-30");
+        Date startTime = new SimpleDateFormat("yyyy-MM-dd").parse("2019-10-26");
+        Date endTime = new SimpleDateFormat("yyyy-MM-dd").parse("2019-11-02");
         Calendar c = Calendar.getInstance();
         c.setTime(startTime);
         // c.setTime(endTime);
         List<String> list = new ArrayList();
         String tableName="as_device_event_his_alarm_";
         String aa = "";
-        while (c.getTime().getTime() <= endTime.getTime()) {//判断是否到结束日期
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
+        while (Integer.parseInt(sdf.format(c.getTime())) <= Integer.parseInt(sdf.format(endTime))) {//判断是否到结束日期
                 String str = sdf.format(c.getTime());
-                if (str.equals(sdf.format(new Date()))) {
+            System.out.println("===>"+str);
+            if (str.equals(sdf.format(new Date()))) {
                      aa = "as_device_event_alarm";
                 } else {
                     aa=tableName+""+str;
