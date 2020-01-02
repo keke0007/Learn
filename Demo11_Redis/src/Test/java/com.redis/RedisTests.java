@@ -11,6 +11,7 @@ import org.springframework.data.redis.core.*;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -48,6 +49,11 @@ public class RedisTests {
     public void testLists() {
         String redisKey = "test:ids";
 
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+//        redisTemplate.opsForList().leftPushAll(redisKey, list);
 //        redisTemplate.opsForList().leftPush(redisKey, 101);
 //        redisTemplate.opsForList().leftPush(redisKey, 102);
 //        redisTemplate.opsForList().leftPush(redisKey, 103);
@@ -57,12 +63,18 @@ public class RedisTests {
 //        System.out.println(redisTemplate.opsForList().range(redisKey, 0, 2));
 //
 //        System.out.println(redisTemplate.opsForList().leftPop(redisKey));
-        System.out.println(redisTemplate.opsForList().size(redisKey));
+//        System.out.println(redisTemplate.opsForList().size(redisKey));
 //        System.out.println(redisTemplate.opsForList().leftPop(redisKey));
 //        System.out.println(redisTemplate.opsForList().leftPop(redisKey));
         List range = redisTemplate.opsForList().range(redisKey, 0, -1);
-        System.out.println(range.get(0));
-        System.out.println(redisTemplate.opsForList().range(redisKey, 0, -1));
+        System.out.println(range);
+        range.remove(0);
+        redisTemplate.opsForList().remove(redisKey,0,1);
+//        redisTemplate.opsForList().leftPushAll(range);
+        List range1 = redisTemplate.opsForList().range(redisKey, 0, -1);
+        System.out.println(range);
+//        System.out.println(range.get(0));
+//        System.out.println(redisTemplate.opsForList().range(redisKey, 0, -1));
     }
 
     @Test
@@ -87,9 +99,9 @@ public class RedisTests {
         redisTemplate.opsForZSet().add(redisKey, "白龙马", 60);
 
         System.out.println(redisTemplate.opsForZSet().zCard(redisKey));
-        System.out.println(redisTemplate.opsForZSet().score(redisKey, "八戒"));
-        System.out.println(redisTemplate.opsForZSet().reverseRank(redisKey, "八戒"));
-        System.out.println(redisTemplate.opsForZSet().reverseRange(redisKey, 0, 2));
+//        System.out.println(redisTemplate.opsForZSet().score(redisKey, "八戒"));
+//        System.out.println(redisTemplate.opsForZSet().reverseRank(redisKey, "八戒"));
+//        System.out.println(redisTemplate.opsForZSet().reverseRange(redisKey, 0, 2));
     }
 
     @Test

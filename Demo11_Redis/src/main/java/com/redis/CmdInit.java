@@ -16,5 +16,6 @@ public class CmdInit implements CommandLineRunner {
         System.out.println("CommanderLineRunner学习链接>>>>https://blog.csdn.net/catoop/article/details/50501710");
         System.out.println("RedisTemplate用法详解>>>>>>https://blog.csdn.net/weixin_40461281/article/details/82011670");
         System.out.println("Redis API 必杀解读:引入RedisTemplate>>>https://blog.csdn.net/wd2014610/article/details/77371601");
+        System.out.println("在Java中使用redisTemplate操作缓存>>>>https://juejin.im/post/5c4165d66fb9a049e93d05a3");
     }
 }
